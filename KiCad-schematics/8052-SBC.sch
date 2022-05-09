@@ -3614,7 +3614,7 @@ Wire Wire Line
 Wire Wire Line
 	15925 2950 15925 2900
 Text Notes 17300 2500 0    50   ~ 0
-NOTE:\nThis layout is correctt,\nthe PCD needs to be\nmodified to work
+NOTE:\nThis layout is correctt,\nthe PCB needs to be\nmodified to work
 $Comp
 L Diode:1N4148 D5
 U 1 1 62BB5D13
