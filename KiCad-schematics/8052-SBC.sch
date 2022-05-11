@@ -5,8 +5,8 @@ $Descr A2 23386 16535
 encoding utf-8
 Sheet 1 1
 Title " 8052AH Single Board Computer"
-Date "2022-05-10"
-Rev "0.2"
+Date "2022-05-11"
+Rev "0.21"
 Comp "Made by Datafant in the 1980's"
 Comment1 "Schematic created by Mikael Karlsson 2022"
 Comment2 ""
@@ -2189,7 +2189,7 @@ U 1 1 63507312
 P 2700 2750
 F 0 "Q2" H 2890 2796 50  0000 L CNN
 F 1 "2N2222A" H 2450 2925 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-18-2" H 2900 2675 50  0001 L CIN
+F 2 "Package_TO_SOT_THT:TO-18-3" H 2900 2675 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/2N2219-D.PDF" H 2700 2750 50  0001 L CNN
 	1    2700 2750
 	1    0    0    -1  
@@ -2511,7 +2511,7 @@ U 1 1 62674330
 P 2475 6050
 F 0 "Q1" H 2665 6096 50  0000 L CNN
 F 1 "2N2222A" H 2665 6005 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-18-2" H 2675 5975 50  0001 L CIN
+F 2 "Package_TO_SOT_THT:TO-18-3" H 2675 5975 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/2N2219-D.PDF" H 2475 6050 50  0001 L CNN
 	1    2475 6050
 	1    0    0    -1  
@@ -2821,7 +2821,7 @@ U 1 1 647FD4A4
 P 17550 10700
 F 0 "Q3" V 17875 10650 50  0000 L CNN
 F 1 "2N2907A" V 17775 10525 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-18-2" H 17750 10625 50  0001 L CIN
+F 2 "Package_TO_SOT_THT:TO-18-3" H 17750 10625 50  0001 L CIN
 F 3 "http://www.onsemi.com/pub_link/Collateral/2N2219-D.PDF" H 17550 10700 50  0001 L CNN
 	1    17550 10700
 	0    -1   -1   0   
