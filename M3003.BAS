@@ -1,3 +1,4 @@
+1 REM  Set and Read M3003
 10 STRING 110,9
 11 $(0)="Sunday"
 12 $(1)="Monday"
