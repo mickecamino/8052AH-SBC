@@ -32,27 +32,35 @@ REM reset multiplexer by setting CS twice
 230 XBY(RTC)=01H
 REM get time and date
 300 INPUT "year (0-99)? ",T
+301 IF T > 100 THEN GOTO 300
 310 M=5
 320 GOSUB 3000
 400 INPUT "month (1-12)? ",T
+401 IF T > 12 THEN GOTO 400
 410 M=4
 420 GOSUB 3000
 500 INPUT "day of month (1-31)? ",T
+501 IF T > 31 THEN GOTO 500
 510 M=3
 520 GOSUB 3000
-600 INPUT "day of week (1-7)? (Sunday=0)",T
+600 INPUT "day of week (0-6)? (Sunday=0)",T
+601 IF T > 6 THEN GOTO 600
 610 M=6
 620 GOSUB 3000
 650 INPUT "week number (1-53)?",T
+651 IF T > 53 THEN GOTO 650
 660 M=7
 670 GOSUB 3000
 700 INPUT "hour (0-23)? ",T
+701 IF T > 23 THEN GOTO 700
 710 M=2
 720 GOSUB 3000
 800 INPUT "minutes (0-59)? ",T
+801 IF T > 59 THEN GOTO 800
 810 M=1
 820 GOSUB 3000
 900 INPUT "seconds (0-59)? ",T
+901 IF T > 59 THEN GOTO 900
 910 M=0
 920 GOSUB 3000
 950 PRINT "Press any key when ready to start the clock"
