@@ -22,14 +22,16 @@ REM RTC address
 120 WHILE 1=1
 122 END
 REM initialize and start clock
-REM stop clock while initializing
 REM reset multiplexer by setting CS twice
 200 Z=XBY(RTC)
 205 Z=XBY(RTC)
 210 Z=XBY(RTC)
 212 Z=XBY(RTC)
+REM Address 0FH
 215 XBY(RTC)=0Fh
+REM Tens
 220 XBY(RTC)=00H
+REM units, set bit 0 to 1 to start clock
 230 XBY(RTC)=01H
 REM get time and date
 300 INPUT "year (0-99)? ",T
@@ -66,9 +68,13 @@ REM get time and date
 920 GOSUB 3000
 950 PRINT "Press any key when ready to start the clock"
 960 A=GET : IF A=0 THEN GOTO 960
+REM Read M3003 Bus
 970 Z=XBY(RTC)
+REM Address oFH
 971 XBY(RTC)=0FH
+REM Tens
 971 XBY(RTC)=00H
+REM units, set bit 0 to 1 to start clock
 872 XBY(RTC)=01H 
 999 RETURN
 REM display current time and date
@@ -110,15 +116,23 @@ REM get week #
 REM convert decimal to tens and units and write to clock
 3000 T1=INT(T/10)
 3010 T2=T-INT(T/10)*10
+REM Read M3003 Bus
 3020 Z=XBY(RTC)
+REM Write address, M contains address
 3030 XBY(RTC)=M
+REM Write tens
 3040 XBY(RTC)=T1
+REM Write Units
 3050 XBY(RTC)=T2
 3060 RETURN
-REM read A
+REM read RTC
 3200 Z=XBY(RTC)
+REM Set Address
 3210 XBY(RTC)=M
+REM Read tTens
 3220 TIDT=XBY(RTC).AND.0FH
+REM Read Units
 3230 TIDE=XBY(RTC).AND.0FH
+REM Combine the result
 3240 T=TIDT*10+TIDE
 3250 RETURN
