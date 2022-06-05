@@ -1,12 +1,12 @@
 1 REM  Set and Read M3003
 10 STRING 110,9
-11 $(0)="Sunday"
-12 $(1)="Monday"
-13 $(2)="Tuesday"
-14 $(3)="Wednesday"
-15 $(4)="Thursday"
-16 $(5)="Friday"
-17 $(6)="Saturday"
+11 $(1)="Monday"
+12 $(2)="Tuesday"
+13 $(3)="Wednesday"
+14 $(4)="Thursday"
+15 $(5)="Friday"
+16 $(6)="Saturday"
+17 $(7)="Sunday"
 REM RTC address
 20 RTC=0E060H
 100 DO
@@ -25,52 +25,61 @@ REM initialize and start clock
 REM reset multiplexer by setting CS twice
 200 Z=XBY(RTC)
 205 Z=XBY(RTC)
+REM now read it twice again
 210 Z=XBY(RTC)
 212 Z=XBY(RTC)
-REM Address 0FH
+REM write to Address 0FH
 215 XBY(RTC)=0Fh
-REM Tens
+REM write the Tens
 220 XBY(RTC)=00H
-REM units, set bit 0 to 1 to start clock
+REM write the units, set bit 0 to 1 to start clock
 230 XBY(RTC)=01H
-REM get time and date
+REM set the clock
 300 INPUT "year (0-99)? ",T
-301 IF T > 100 THEN GOTO 300
+301 IF T > 99 THEN GOTO 300
+302 IF T < 0 THEN GOTO 300
 310 M=5
 320 GOSUB 3000
 400 INPUT "month (1-12)? ",T
 401 IF T > 12 THEN GOTO 400
+402 IF T < 1 THEN GOTO 400
 410 M=4
 420 GOSUB 3000
 500 INPUT "day of month (1-31)? ",T
 501 IF T > 31 THEN GOTO 500
+502 IF T < 1 THEN GOTO 500
 510 M=3
 520 GOSUB 3000
-600 INPUT "day of week (0-6)? (Sunday=0)",T
-601 IF T > 6 THEN GOTO 600
+600 INPUT "day of week (1-7)? (Sunday=7)",T
+601 IF T > 7 THEN GOTO 600
+602 IF T < 1 THEN GOTO 600
 610 M=6
 620 GOSUB 3000
 650 INPUT "week number (1-53)?",T
 651 IF T > 53 THEN GOTO 650
+652 IF T < 1 THEN GOTO 650
 660 M=7
 670 GOSUB 3000
 700 INPUT "hour (0-23)? ",T
 701 IF T > 23 THEN GOTO 700
+702 IF T < 0 THEN GOTO 700
 710 M=2
 720 GOSUB 3000
 800 INPUT "minutes (0-59)? ",T
 801 IF T > 59 THEN GOTO 800
+802 IF T < 0 THEN GOTO 800
 810 M=1
 820 GOSUB 3000
 900 INPUT "seconds (0-59)? ",T
 901 IF T > 59 THEN GOTO 900
+902 IF T < 0 THEN GOTO 900
 910 M=0
 920 GOSUB 3000
 950 PRINT "Press any key when ready to start the clock"
 960 A=GET : IF A=0 THEN GOTO 960
 REM Read M3003 Bus
 970 Z=XBY(RTC)
-REM Address oFH
+REM Address 0FH
 971 XBY(RTC)=0FH
 REM Tens
 971 XBY(RTC)=00H
@@ -129,7 +138,7 @@ REM read RTC
 3200 Z=XBY(RTC)
 REM Set Address
 3210 XBY(RTC)=M
-REM Read tTens
+REM Read Tens
 3220 TIDT=XBY(RTC).AND.0FH
 REM Read Units
 3230 TIDE=XBY(RTC).AND.0FH
