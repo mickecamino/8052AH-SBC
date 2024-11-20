@@ -1,4 +1,4 @@
 (sym_lib_table
   (lib (name 8052-SBC)(type Legacy)(uri ${KIPRJMOD}/8052-SBC.lib)(options "")(descr ""))
-  (lib (name c64ab)(type Legacy)(uri "C:/Users/Micke/OneDrive - MickeCarlssonHome/Syno-11/KiCad-projects/8052-datafant/c64ab.lib")(options "")(descr ""))
+  (lib (name c64ab)(type Legacy)(uri ${KIPRJMOD}/c64ab.lib")(options "")(descr ""))
 )
