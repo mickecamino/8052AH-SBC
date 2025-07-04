@@ -1,4 +1,4 @@
 (sym_lib_table
-  (lib (name 8052-SBC)(type Legacy)(uri ${KIPRJMOD}/8052-SBC.lib)(options "")(descr ""))
-  (lib (name c64ab)(type Legacy)(uri ${KIPRJMOD}/c64ab.lib")(options "")(descr ""))
+  (version 7)
+  (lib (name "8052-SBC")(type "KiCad")(uri "${KIPRJMOD}/8052-SBC.kicad_sym")(options "")(descr ""))
 )

@@ -1,2 +1,4 @@
-# DO NOT USE""
-This schematic is old, it will be updated to KiCad 9.x shortly.
+# 8052AH-SBC
+This is a 8052AH Single Board Computer designed by Datafant (Sweden) in the 1980's.
+
+Scheamtic created with kicad 9.02
